@@ -10,16 +10,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        logging()
+        //logging()
         division()
+        //tryCatchDivision()
     }
 
     fun division() {
         val numerator = 60
         var denominator = 4
         repeat(5) {
-            Log.d(TAG, "$denominator")
+            Log.d(TAG, "denominator $denominator")
             Log.v(TAG, "${numerator / denominator}")
+            denominator--
+        }
+    }
+
+    fun tryCatchDivision() {
+        val numerator = 60
+        var denominator = 4
+        repeat(5) {
+            Log.d(TAG, "denominator $denominator")
+            try {
+                 Log.v(TAG, "${numerator / denominator}")
+             }catch (e: Exception){
+                 Log.e(TAG, "ERROR: ${e.message}!")
+             }
             denominator--
         }
     }
